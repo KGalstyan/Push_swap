@@ -6,7 +6,7 @@
 /*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:41:31 by kgalstya          #+#    #+#             */
-/*   Updated: 2024/03/20 23:41:08 by kgalstya         ###   ########.fr       */
+/*   Updated: 2024/03/29 15:28:49 by kgalstya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,5 @@ void do_ss(t_stack *stack_a, t_stack *stack_b)
 {
     do_sa(stack_a);
     do_sb(stack_b);
+    ft_putstr("ss\n");
 }

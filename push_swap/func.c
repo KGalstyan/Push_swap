@@ -6,7 +6,7 @@
 /*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 22:19:09 by kgalstya          #+#    #+#             */
-/*   Updated: 2024/03/20 23:38:34 by kgalstya         ###   ########.fr       */
+/*   Updated: 2024/03/29 15:55:34 by kgalstya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,17 @@ t_stack stack_penultimate(t_stack *stack)
 
 t_stack new_stack(t_stack *stack)
 {
-    
+	t_stack	*new;
+
+	new = malloc(sizeof * new);
+	if (!new)
+		return (NULL);
+	new->value = 1;
+	new->index = 0;
+	new->next = NULL;
+	return (new);
 }
+
 
 void	ft_putstr(char *s, int fd)
 {
@@ -44,6 +53,5 @@ void	ft_putstr(char *s, int fd)
 		i++;
 	}
 }
-
 
 

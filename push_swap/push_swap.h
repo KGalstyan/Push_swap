@@ -6,7 +6,7 @@
 /*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:34:53 by kgalstya          #+#    #+#             */
-/*   Updated: 2024/03/29 15:50:27 by kgalstya         ###   ########.fr       */
+/*   Updated: 2024/04/14 14:53:54 by kgalstya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void do_ss(t_stack *stack_a, t_stack *stack_b);
 void do_ra(t_stack *stack_a);
 void do_rb(t_stack *stack_b);
 
-//rev-rotate
+//rev-rotate//
 
 void do_rra(t_stack *stack_a);
 void do_rrb(t_stack *stack_b);
@@ -51,3 +51,19 @@ t_stack  stack_last(t_stack *stack);
 t_stack  stack_penultimate(t_stack *stack);
 void	 ft_putstr(char *s, int fd);
 t_stack new_stack(t_stack *stack);
+void	free_stack(t_stack **stack);
+
+//input checker//
+
+int correct_input(char **av);
+
+int is_number(char *av);
+int sign(char h);
+int is_digit(char h);
+
+int have_duplicates(char **av);
+int num_cmp(const char *s1, const char *s2);
+
+int is_zero(char *av);
+
+#endif

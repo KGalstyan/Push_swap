@@ -1,7 +1,9 @@
-NAME = libftprintf.a 
+NAME = pushswap.a
 CC = cc
 CFLAGES = -Wall -Wextra -Werror
-FUN =	
+FUN = input_checer.c \
+		input_checer_utils.c \
+		main.c 
 
 FUNO = $(FUN:.c=.o)
 

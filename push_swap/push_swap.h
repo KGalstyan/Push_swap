@@ -6,7 +6,7 @@
 /*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:34:53 by kgalstya          #+#    #+#             */
-/*   Updated: 2024/04/14 14:53:54 by kgalstya         ###   ########.fr       */
+/*   Updated: 2024/04/24 16:54:31 by kgalstya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,27 @@ void	free_stack(t_stack **stack);
 
 //input checker//
 
-int correct_input(char **av);
+//libft functions//
+long long	ft_atoi(const char *nptr);
+char	**ft_split(char const *s, char c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+size_t	ft_strlen(const char *s);
+char	*ft_strdup(const char *s);
 
-int is_number(char *av);
-int sign(char h);
+//for free//
+void free_matrix(char **split_str);
+
+//argv checker//
 int is_digit(char h);
+int sign(char h);
+int arg_checker(char **av);
 
-int have_duplicates(char **av);
-int num_cmp(const char *s1, const char *s2);
+//string checker//
+char *make_char_str(char **av, int len);
+int str_with_checker(char *str);
 
-int is_zero(char *av);
+//int string and dublication checker//
+int *make_int_string(char *str);
+int correct_input(char **argv);
 
 #endif

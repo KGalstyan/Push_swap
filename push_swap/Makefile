@@ -1,19 +1,15 @@
-NAME = pushswap.a
+NAME = pushswap
 CC = cc
 CFLAGES = -Wall -Wextra -Werror
-FUN = input_checer.c \
-		input_checer_utils.c \
-		main.c 
+FUN = ft_atoi.c ft_split.c ft_strdup.c ft_strlen.c ft_substr.c main.c\
+		input_checker.c input_checker_utils1.c input_checker_utils2.c
 
 FUNO = $(FUN:.c=.o)
 
 all : $(NAME)
 
-$(FUNO)%.o: $(FUN)%.c
-	$(CC) $(CFLAGS) -c $< -o
-
-$(NAME): $(FUNO)
-	ar -rcs $(NAME) $(FUNO)
+${NAME}: ${FUNO} push_swap.h Makefile
+	@$(CC) $(CFLAGES) $(FUNO) -o $(NAME)
 
 clean: 
 	-rm -rf $(FUNO)

@@ -1,69 +1,92 @@
-#include <push_swap.h>
+#include "push_swap.h"
 
-int is_zero(char *av)
+static int int_string_len(char *str)
 {
     int i = 0;
-    if(sign(av[i]))
+    char **split_str;
+
+    split_str = ft_split(str, ' ');
+    while(split_str[i])
+    {
+        if((ft_atoi(split_str[i]) > 2147483647) || (ft_atoi(split_str[i]) < -2147483648))
+        {
+            free_matrix(split_str);
+            return(0);
+        }
         i++;
-    while(av[i] && av[i] == '0')
+    }
+    free_matrix(split_str);
+    return(i);
+}
+int *make_int_string(char *str)
+{
+    int i = 0;
+    int n = 0;
+    int *arr;
+    char **split_str;
+
+    split_str = ft_split(str, ' ');
+    while(split_str[i])
         i++;
-    if(av[i] != '\0')
+    arr = (int *)malloc(sizeof(int) * i);
+    if(!arr)
         return(0);
-    return(1);
+    i = 0;
+    while(split_str[i])
+    {
+        arr[n] = ft_atoi(split_str[i]);
+        i++;
+        n++;
+    }
+    free_matrix(split_str);
+    return(arr);
 }
 
-
-int have_duplicates(char **av)
+static int have_dublicates(int *arr, int len)
 {
-    int i = 1;
-    int j;
-
-    while(av[i])
+    int i = 0;
+    int p = 0;
+    while(i < len)
     {
-        j = 1;
-        while(av[j])
+        p = i + 1;
+        while(p < len)
         {
-            if(num_cmp(av[i] , av[j]) == 0)
+            if(arr[i] == arr[p])
+            {
+                printf("have dub");
                 return(0);
-            j++;
+            }
+            p++;
         }
         i++;
     }
     return(1);
 }
 
-int num_cmp(const char *s1, const char *s2)
+int correct_input(char **argv)
 {
-    int i = 0;
-    int j = 0;
-    int res = 0;
-    if(s1[i] == '+' && s2[j] != '+')
-        i++;
-    if(s1[i] != '+' && s2[j] == '+')
-        j++;
-    while ((s1[i] == s2[j]) && (s1[i] == '\0' && s2[j] == '\0'))
+    int len = 0;
+    char *str;
+    int *int_arr;
+    if(!arg_checker(argv))
+        return(0);
+    else
+        len = arg_checker(argv);
+    str = make_char_str(argv, len);
+    if(!str_with_checker(str))
     {
-		i++;
-        j++;
-	}
-	return ((unsigned char)s1[i] - (unsigned char)s2[j]);
-}
-
-int correct_input(char **av)
-{
-    int i = 0;
-    int num_zero = 0;
-
-    while(av[i])
-    {
-        if(!(is_number(av[i])))
-            return(0);
-        num_zero += is_zero(av[i]);
-        i++;
+        free(str);
+        return(0);
     }
-    if (num_zero > 1)
-		return (0);
-	if (have_duplicates(av))
-		return (0);
-	return (1);
+    len = int_string_len(str);
+    int_arr = make_int_string(str);
+    free(str);
+    if(!have_dublicates(int_arr, len))
+    {
+        free(int_arr);
+        return(0);
+    }
+    free(int_arr);
+    return(len);
 }
+

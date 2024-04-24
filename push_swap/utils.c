@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   func.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 22:19:09 by kgalstya          #+#    #+#             */
-/*   Updated: 2024/04/24 17:31:37 by kgalstya         ###   ########.fr       */
+/*   Updated: 2024/04/24 19:28:28 by kgalstya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_stack new_stack(t_stack *stack)
 	return (new);
 }
 
-
+/*
 void	ft_putstr(char *s, int fd)
 {
 	int	i;
@@ -53,6 +53,7 @@ void	ft_putstr(char *s, int fd)
 		i++;
 	}
 }
+*/
 
 void	free_stack(t_stack **stack)
 {

@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static int int_string_len(char *str)
+int int_string_len(char *str)
 {
     int i = 0;
     char **split_str;

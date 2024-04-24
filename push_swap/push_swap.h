@@ -6,7 +6,7 @@
 /*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:34:53 by kgalstya          #+#    #+#             */
-/*   Updated: 2024/04/24 16:54:31 by kgalstya         ###   ########.fr       */
+/*   Updated: 2024/04/24 20:51:42 by kgalstya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ typedef struct s_stack
     struct s_stack	*next;
 }	t_stack;
 
-#define stack_a
-#define stack_b
+//#define stack_a
+//#define stack_b
 
 //swap//
 void do_sa(t_stack *stack_a);
@@ -49,7 +49,7 @@ void do_rrr(t_stack *stack_a, t_stack *stack_b);
 //func//
 t_stack  stack_last(t_stack *stack);
 t_stack  stack_penultimate(t_stack *stack);
-void	 ft_putstr(char *s, int fd);
+//void	 ft_putstr(char *s);
 t_stack new_stack(t_stack *stack);
 void	free_stack(t_stack **stack);
 
@@ -77,5 +77,22 @@ int str_with_checker(char *str);
 //int string and dublication checker//
 int *make_int_string(char *str);
 int correct_input(char **argv);
+int int_string_len(char *str);
+
+//list libft functions//
+void	ft_lstadd_back(t_stack **lst, t_stack *new);
+void	ft_lstadd_front(t_stack **lst, t_stack *new);
+t_stack	*ft_lstnew(int value);
+int	ft_lstsize(t_stack *lst);
+
+//fill stack//
+t_stack *fill_stack_values(char **av);
+t_stack *fill_stack(int *num, int len);
+
+//sorting//
+
+void sort(t_stack *stack_a, t_stack *stack_b);
+void sorting_two(t_stack *stack_a, t_stack *stack_b);
+void sorting_three(t_stack *stack_a);
 
 #endif

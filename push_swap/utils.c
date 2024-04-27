@@ -6,41 +6,42 @@
 /*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 22:19:09 by kgalstya          #+#    #+#             */
-/*   Updated: 2024/04/24 19:28:28 by kgalstya         ###   ########.fr       */
+/*   Updated: 2024/04/27 19:52:23 by kgalstya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack  stack_last(t_stack *stack)
+t_stack  *stack_last(t_stack *stack)
 {
 	while (stack && stack->next != NULL)
 		stack = stack->next;
     return(stack);
 }
 
-t_stack stack_penultimate(t_stack *stack)
+t_stack *stack_penultimate(t_stack *stack)
 {
     while(stack && stack->next != NULL && stack->next->next != NULL)
         stack = stack->next;
     return(stack);
 }
 
-t_stack new_stack(t_stack *stack)
-{
-	t_stack	*new;
 
-	new = malloc(sizeof * new);
-	if (!new)
-		return (NULL);
-	new->value = 1;
-	new->index = 0;
-	new->next = NULL;
-	return (new);
-}
+// static t_stack new_stack(t_stack *stack)
+// {
+// 	t_stack	*new;
 
-/*
-void	ft_putstr(char *s, int fd)
+// 	new = malloc(sizeof * new);
+// 	if (!new)
+// 		return (NULL);
+// 	new->value = 1;
+// 	new->index = 0;
+// 	new->next = NULL;
+// 	return (new);
+// }
+
+
+void	ft_putstr(char *s)
 {
 	int	i;
 
@@ -53,24 +54,24 @@ void	ft_putstr(char *s, int fd)
 		i++;
 	}
 }
-*/
-
-void	free_stack(t_stack **stack)
-{
-	t_stack	*tmp;
-
-	if (!stack || !(*stack))
-		return ;
-	while (*stack)
-	{
-		tmp = (*stack)->next;
-		free(*stack);
-		*stack = tmp;
-	}
-	*stack = NULL;
-}
 
 
+// static void	free_stack(t_stack **stack)
+// {
+// 	t_stack	*tmp;
+
+// 	if (!stack || !(*stack))
+// 		return ;
+// 	while (*stack)
+// 	{
+// 		tmp = (*stack)->next;
+// 		free(*stack);
+// 		*stack = tmp;
+// 	}
+// 	*stack = NULL;
+// }
+
+/*
 void	exit_error(t_stack **stack_a, t_stack **stack_b)
 {
 	// if (stack_a == NULL || *stack_a != NULL)
@@ -80,3 +81,4 @@ void	exit_error(t_stack **stack_a, t_stack **stack_b)
 	write(2, "Error\n", 6);
 	exit (1);
 }
+*/

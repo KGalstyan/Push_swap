@@ -28,7 +28,8 @@ int main(int argc, char **argv)
     else
         printf("Correct input");
     stack_a = fill_stack_values(argv);
-    sort(stack_a, stack_b);
+    stack_b = NULL;
+    sort(argv, &stack_a, &stack_b);
     print_stack(stack_a);
     system("leaks pushswap");
     return(0);

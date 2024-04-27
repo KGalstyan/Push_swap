@@ -6,7 +6,7 @@
 /*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:34:53 by kgalstya          #+#    #+#             */
-/*   Updated: 2024/04/24 20:51:42 by kgalstya         ###   ########.fr       */
+/*   Updated: 2024/04/27 19:50:53 by kgalstya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,35 +27,37 @@ typedef struct s_stack
     struct s_stack	*next;
 }	t_stack;
 
-//#define stack_a
-//#define stack_b
 
 //swap//
-void do_sa(t_stack *stack_a);
-void do_sb(t_stack *stack_b);
-void do_ss(t_stack *stack_a, t_stack *stack_b);
+void do_sa(t_stack **stack_a);
+void do_sb(t_stack **stack_b);
+void do_ss(t_stack **stack_a, t_stack **stack_b);
 
 //rotate//
-void do_ra(t_stack *stack_a);
-void do_rb(t_stack *stack_b);
+void do_ra(t_stack **stack_a);
+void do_rb(t_stack **stack_b);
+void do_rr(t_stack **stack_a, t_stack **stack_b);
 
 //rev-rotate//
 
-void do_rra(t_stack *stack_a);
-void do_rrb(t_stack *stack_b);
-void do_rrr(t_stack *stack_a, t_stack *stack_b);
+void do_rra(t_stack **stack_a);
+void do_rrb(t_stack **stack_b);
+void do_rrr(t_stack **stack_a, t_stack **stack_b);
+
+//push//
+void do_pa(t_stack **stack_a, t_stack **stack_b);
+void do_pb(t_stack **stack_a, t_stack **stack_b);
 
 
-//func//
-t_stack  stack_last(t_stack *stack);
-t_stack  stack_penultimate(t_stack *stack);
-//void	 ft_putstr(char *s);
+//utils//
+t_stack  *stack_last(t_stack *stack);
+t_stack  *stack_penultimate(t_stack *stack);
+void    ft_putstr(char *s);
 t_stack new_stack(t_stack *stack);
 void	free_stack(t_stack **stack);
 
-//input checker//
 
-//libft functions//
+//LIBFT functions//
 long long	ft_atoi(const char *nptr);
 char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
@@ -91,8 +93,11 @@ t_stack *fill_stack(int *num, int len);
 
 //sorting//
 
-void sort(t_stack *stack_a, t_stack *stack_b);
-void sorting_two(t_stack *stack_a, t_stack *stack_b);
-void sorting_three(t_stack *stack_a);
+void sort(char **av, t_stack **stack_a, t_stack **stack_b);
+void sorting_two(t_stack **stack_a);
+void sorting_three(t_stack **stack_a);
+void sorting_four(t_stack **stack_a, t_stack **stack_b);
+//void sorting_main(t_stack **stack_a, t_stack **stack_b);
 
+int get_min_index(t_stack *stack_a);
 #endif

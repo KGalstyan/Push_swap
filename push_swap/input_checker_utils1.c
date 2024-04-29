@@ -29,10 +29,7 @@ static int arg_is_empty(char *str)
     while (str[i])
         i++;
     if (i == 0)
-    {
-        printf("IS EMPTY");
         return (0);
-    }
     return (1);
 }
 

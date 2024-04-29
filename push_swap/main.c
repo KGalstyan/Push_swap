@@ -1,37 +1,41 @@
 #include "push_swap.h"
 
-static void print_stack(t_stack *a)
+static void	free_stack(t_stack **stack)
 {
-    int num;
-    printf("\n");
-    while(a != NULL)
-    {
-        num = a->value;
-        printf("%d\n", num);
-        a = a->next;
-    }
-}
+	t_stack	*tmp;
 
+	if (!stack || !(*stack))
+		return ;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+	*stack = NULL;
+}
 
 int main(int argc, char **argv)
 {
     t_stack *stack_a;
     t_stack *stack_b;
 
-    if(argc < 2)
-        return(0);
     if(!correct_input(argv))
     {
-        printf("ERROR");
+        exit_error(NULL, NULL);
         return(0);
     }
-    else
-        printf("Correct input");
+    if(argc < 3)
+        return(0);
     stack_a = fill_stack_values(argv);
     stack_b = NULL;
     sort(argv, &stack_a, &stack_b);
-    print_stack(stack_a);
-    system("leaks pushswap");
+    free_stack(&stack_a);
+    // if(is_sorted(&stack_a))
+    //     printf("stack is SORTED");
+    // else
+    //     printf("NOOOOOOO");
+    // system("leaks pushswap");
     return(0);
 }
 

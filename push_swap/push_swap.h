@@ -6,7 +6,7 @@
 /*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:34:53 by kgalstya          #+#    #+#             */
-/*   Updated: 2024/04/27 19:50:53 by kgalstya         ###   ########.fr       */
+/*   Updated: 2024/04/29 22:14:44 by kgalstya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 
 typedef struct s_stack
 {
-    int index;
     int value;
     
     struct s_stack	*next;
@@ -54,7 +53,6 @@ t_stack  *stack_last(t_stack *stack);
 t_stack  *stack_penultimate(t_stack *stack);
 void    ft_putstr(char *s);
 t_stack new_stack(t_stack *stack);
-void	free_stack(t_stack **stack);
 
 
 //LIBFT functions//
@@ -97,7 +95,18 @@ void sort(char **av, t_stack **stack_a, t_stack **stack_b);
 void sorting_two(t_stack **stack_a);
 void sorting_three(t_stack **stack_a);
 void sorting_four(t_stack **stack_a, t_stack **stack_b);
-//void sorting_main(t_stack **stack_a, t_stack **stack_b);
+void sorting_five(t_stack **stack_a, t_stack **stack_b);
+void sorting_main(char **av, t_stack **stack_a, t_stack **stack_b);
 
 int get_min_index(t_stack *stack_a);
+int	is_sorted(t_stack **stack);
+
+//sorting main//
+void push_back(t_stack **stack_a, t_stack **stack_b, int len);
+
+
+
+//error//
+void	exit_error(t_stack **stack_a, t_stack **stack_b);
+
 #endif

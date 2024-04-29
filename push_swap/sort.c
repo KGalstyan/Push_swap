@@ -33,13 +33,12 @@ void sort(char **av, t_stack **stack_a, t_stack **stack_b)
     len = ft_lstsize(*stack_a);
     if(len == 2)
         sorting_two(stack_a);
-    if(len == 3)
+    else if(len == 3)
         sorting_three(stack_a);
-    //do_pb(stack_a, stack_b);
-    if(len == 4)
+    else if(len == 4)
         sorting_four(stack_a, stack_b);
-    //if(len == 5)
-    //    sorting_five(stack_a, stack_b);
-    //sorting_main(av, stack_a, stack_b);
-    printf("%s", av[1]);
+    else if(len == 5)
+        sorting_five(stack_a, stack_b);
+    else
+        sorting_main(av, stack_a, stack_b);
 }

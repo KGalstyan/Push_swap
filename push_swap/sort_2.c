@@ -4,48 +4,68 @@ int get_min_index(t_stack *stack_a)
 {
     t_stack *tmp;
     int min_index;
-    int i = 0;
+    int value;
+    int i;
 
+    i = 0;
+    min_index = 0;
     tmp = stack_a;
-    while(tmp->next != NULL)
+    value = tmp->value;
+    while(tmp != NULL)
     {
-        if(tmp->value < tmp->next->value)
+        if(tmp->value < value)
+        {
+            value = tmp->value;
             min_index = i;
-        i++;
+        }
         tmp = tmp->next;
+        i++;
     }
     return(min_index);
 }
 
-void sorting_four(t_stack **stack_a, t_stack **stack_b)
+static void sort_in_stack_a(t_stack **stack_a)
 {
     int len;
     int min_index;
-    int step = 0;
 
     min_index = get_min_index(*stack_a);
     len = ft_lstsize(*stack_a);
-    printf("\nMINI = %d\n", min_index);
-    if((min_index + 1) < len/2)
+    if((min_index) < len/2)
     {
-        while(step < min_index)
+        len = 0;
+        while(len < min_index)
         {
             do_ra(stack_a);
-            step++;
+            len++;
         }
     }
     else
     {
-        while(len > min_index)
+        while(len > min_index && min_index != 0)
         {
             do_rra(stack_a);
             len--;
         }
     }
-    
+}
+void sorting_four(t_stack **stack_a, t_stack **stack_b)
+{
+    sort_in_stack_a(stack_a);
     do_pb(stack_a, stack_b);
-    // sorting_three(stack_a);
-    // do_pa(stack_a,stack_b);
+    sorting_three(stack_a);
+    do_pa(stack_a,stack_b);
 }
 
-
+void sorting_five(t_stack **stack_a, t_stack **stack_b)
+{
+    sort_in_stack_a(stack_a);
+    do_pb(stack_a, stack_b);
+    sort_in_stack_a(stack_a);
+    do_pb(stack_a, stack_b);
+    sorting_three(stack_a);
+    if((*stack_b)->value < (*stack_b)->next->value)
+        do_sb(stack_b);
+    do_pa(stack_a, stack_b);
+    do_pa(stack_a, stack_b);
+}

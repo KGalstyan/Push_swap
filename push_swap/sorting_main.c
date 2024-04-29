@@ -1,12 +1,11 @@
-//#include "push_swap.h"
+#include "push_swap.h"
 
-/*
-void sorting_int_arr(int *int_arr)
+static void sorting_int_arr(int *int_arr, int len)
 {
 	int	i = 0;
 	int	temp;
 
-	while (i < (size - 1))
+	while (i < (len - 1))
 	{
 		if (int_arr[i] > int_arr[i + 1])
 		{
@@ -18,18 +17,56 @@ void sorting_int_arr(int *int_arr)
 		else
 			i++;
     }
-    retrun(int_arr);
 }
-*/
-int get_optimal(int len)
+
+static int get_optimal(int len)
 {
-    
+    int i;
+    int a;
+    int b;
+
+    i = 0;
+    while(i * i <= len)
+    {
+        if(i * i  <= len)
+            a = i;
+        if(i * i * i <= len)
+            b = i;
+        i++;
+    }
+    return(a + b + 1);
 }
-/*
-int *sorting_main(char **av, t_stack stack_a, t_stack stack_b)
+
+static void sorting_process(t_stack **stack_a, t_stack **stack_b, int *int_arr, int len)
+{
+    int i;
+    int opstep;
+
+    opstep = get_optimal(len);
+    i = 0;
+    while(i < len)
+    {
+        if((*stack_a)->value <= int_arr[i])
+        {
+            do_pb(stack_a, stack_b);
+            do_rb(stack_b);
+            i++;
+        }
+        else if((*stack_a)->value <= int_arr[i + opstep])
+        {
+            do_pb(stack_a, stack_b);
+            i++;
+        }
+        else
+            do_ra(stack_a);
+        if(i + opstep > len)
+            opstep--;
+    }
+}
+
+void sorting_main(char **av, t_stack **stack_a, t_stack **stack_b)
 {
     int len;
-    int opstep;
     int *int_arr;
     char *str;
 
@@ -38,14 +75,8 @@ int *sorting_main(char **av, t_stack stack_a, t_stack stack_b)
     len = int_string_len(str);
     int_arr = make_int_string(str);
     free(str);
-    sorting_int_arr(int_arr);
-    opstep = get_optimal(len);
+    sorting_int_arr(int_arr, len);
+    sorting_process(stack_a, stack_b, int_arr, len);
+    push_back(stack_a, stack_b, len);
 }
-*/
-#include <stdio.h>
-int main()
-{
-    printf("\n%d\n",get_optimal(100));
-    printf("\n%d\n",get_optimal(500));
-    return(0);
-}
+

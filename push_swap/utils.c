@@ -6,7 +6,7 @@
 /*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 22:19:09 by kgalstya          #+#    #+#             */
-/*   Updated: 2024/04/27 19:52:23 by kgalstya         ###   ########.fr       */
+/*   Updated: 2024/04/29 22:14:22 by kgalstya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,29 +56,41 @@ void	ft_putstr(char *s)
 }
 
 
-// static void	free_stack(t_stack **stack)
-// {
-// 	t_stack	*tmp;
+static void	free_stack(t_stack **stack)
+{
+	t_stack	*tmp;
 
-// 	if (!stack || !(*stack))
-// 		return ;
-// 	while (*stack)
-// 	{
-// 		tmp = (*stack)->next;
-// 		free(*stack);
-// 		*stack = tmp;
-// 	}
-// 	*stack = NULL;
-// }
+	if (!stack || !(*stack))
+		return ;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+	*stack = NULL;
+}
 
-/*
+
 void	exit_error(t_stack **stack_a, t_stack **stack_b)
 {
-	// if (stack_a == NULL || *stack_a != NULL)
-	// 	free_stack(stack_a);
-	// if (stack_b == NULL || *stack_b != NULL)
-	// 	free_stack(stack_b);
+	if (stack_a == NULL || *stack_a != NULL)
+		free_stack(stack_a);
+	if (stack_b == NULL || *stack_b != NULL)
+		free_stack(stack_b);
 	write(2, "Error\n", 6);
 	exit (1);
 }
-*/
+
+
+
+int	is_sorted(t_stack **stack)
+{
+	while ((*stack)->next != NULL)
+	{
+		if ((*stack)->value > (*stack)->next->value)
+			return (0);
+		(*stack) = (*stack)->next;
+	}
+	return (1);
+}

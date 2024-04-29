@@ -65,13 +65,11 @@ int str_with_checker(char *str)
     {
         if(!correct_len(split_str[i]))
         {
-            printf("INCORR LEN");
             free_matrix(split_str);
             return(0);
         }
         if(!correct_num(split_str[i]))
         {
-            printf("INCOR NUM");
             free_matrix(split_str);
             return(0);
         }

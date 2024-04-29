@@ -6,7 +6,7 @@
 /*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 22:00:23 by kgalstya          #+#    #+#             */
-/*   Updated: 2024/04/27 15:15:12 by kgalstya         ###   ########.fr       */
+/*   Updated: 2024/04/29 22:22:30 by kgalstya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void do_ra(t_stack **stack_a)
     t_stack *tmp;
     t_stack *last;
     
+    if(!(*stack_a) || !(*stack_a)->next)
+        return ;
     tmp = *stack_a;
     *stack_a = (*stack_a)->next;
     last = stack_last(*stack_a);
@@ -29,7 +31,9 @@ void do_rb(t_stack **stack_b)
 {
     t_stack *tmp;
     t_stack *last;
-    
+
+    if(!(*stack_b) || !(*stack_b)->next)
+        return ;
     tmp = *stack_b;
     *stack_b = (*stack_b)->next;
     last = stack_last(*stack_b);

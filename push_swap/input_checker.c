@@ -52,10 +52,7 @@ static int have_dublicates(int *arr, int len)
         while(p < len)
         {
             if(arr[i] == arr[p])
-            {
-                printf("have dub");
                 return(0);
-            }
             p++;
         }
         i++;

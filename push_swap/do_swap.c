@@ -6,7 +6,7 @@
 /*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:41:31 by kgalstya          #+#    #+#             */
-/*   Updated: 2024/04/27 14:29:57 by kgalstya         ###   ########.fr       */
+/*   Updated: 2024/04/29 14:21:01 by kgalstya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void do_sb(t_stack **stack_b)
     tmp = (*stack_b)->value;
     (*stack_b)->value = (*stack_b)->next->value;
     (*stack_b)->next->value = tmp;
-    ft_putstr("sa\n");
+    ft_putstr("sb\n");
 }
 
 void do_ss(t_stack **stack_a, t_stack **stack_b)

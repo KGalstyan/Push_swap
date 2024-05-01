@@ -6,7 +6,7 @@
 /*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 13:26:03 by kgalstya          #+#    #+#             */
-/*   Updated: 2024/04/24 16:47:20 by kgalstya         ###   ########.fr       */
+/*   Updated: 2024/05/01 18:05:54 by kgalstya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 long long	ft_atoi(const char *nptr)
 {
 	long long	num;
-	int	sign;
-	int	n;
+	int			sign;
+	int			n;
 
 	n = 0;
 	sign = 1;
@@ -43,9 +43,9 @@ long long	ft_atoi(const char *nptr)
 /*
 #include <stdio.h>
 
-int main()
+int	main(void)
 {
-    printf("%d", ft_atoi(""));
-    return(0);
+	printf("%d", ft_atoi(""));
+	return(0);
 }
 */

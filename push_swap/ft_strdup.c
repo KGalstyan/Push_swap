@@ -6,12 +6,11 @@
 /*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 15:50:53 by kgalstya          #+#    #+#             */
-/*   Updated: 2024/04/23 18:40:07 by kgalstya         ###   ########.fr       */
+/*   Updated: 2024/05/01 18:19:36 by kgalstya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 char	*ft_strdup(const char *s)
 {

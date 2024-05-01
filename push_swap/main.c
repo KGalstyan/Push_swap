@@ -1,41 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/01 17:56:35 by kgalstya          #+#    #+#             */
+/*   Updated: 2024/05/01 18:31:29 by kgalstya         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static void	free_stack(t_stack **stack)
+int	main(int argc, char **argv)
 {
-	t_stack	*tmp;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
-	if (!stack || !(*stack))
-		return ;
-	while (*stack)
+	if (argc < 2)
+		return (0);
+	if (!correct_input(argv))
 	{
-		tmp = (*stack)->next;
-		free(*stack);
-		*stack = tmp;
+		exit_error(NULL, NULL);
+		return (0);
 	}
-	*stack = NULL;
+	stack_a = fill_stack_values(argv);
+	stack_b = NULL;
+	if (is_sorted(&stack_a))
+	{
+		free_stack(&stack_a);
+		return (0);
+	}
+	else
+		sort(argv, &stack_a, &stack_b);
+	free_stack(&stack_a);
+	return (0);
 }
-
-int main(int argc, char **argv)
-{
-    t_stack *stack_a;
-    t_stack *stack_b;
-
-    if(!correct_input(argv))
-    {
-        exit_error(NULL, NULL);
-        return(0);
-    }
-    if(argc < 3)
-        return(0);
-    stack_a = fill_stack_values(argv);
-    stack_b = NULL;
-    sort(argv, &stack_a, &stack_b);
-    free_stack(&stack_a);
-    // if(is_sorted(&stack_a))
-    //     printf("stack is SORTED");
-    // else
-    //     printf("NOOOOOOO");
-    // system("leaks pushswap");
-    return(0);
-}
-

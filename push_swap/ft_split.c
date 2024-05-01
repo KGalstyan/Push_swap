@@ -6,7 +6,7 @@
 /*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 17:27:07 by kgalstya          #+#    #+#             */
-/*   Updated: 2024/04/23 18:39:37 by kgalstya         ###   ########.fr       */
+/*   Updated: 2024/05/01 18:06:01 by kgalstya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,15 @@ char	**ft_split(char const *s, char c)
 }
 
 /*
-int main()
+int	main(void)
 {
-	char *des = "--1-2--3---4----5-----42";
-	int i = 0;
-	char **arr = ft_split(des, '-');
+	char	*des;
+	int		i;
+	char	**arr;
+
+	des = "--1-2--3---4----5-----42";
+	i = 0;
+	arr = ft_split(des, '-');
 	while (i < 6)
 	{
 		printf("str=%s\n", arr[i]);
@@ -102,4 +106,3 @@ int main()
 	return(0);
 }
 */
-

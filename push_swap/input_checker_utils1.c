@@ -6,7 +6,7 @@
 /*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 17:56:13 by kgalstya          #+#    #+#             */
-/*   Updated: 2024/05/01 19:12:55 by kgalstya         ###   ########.fr       */
+/*   Updated: 2024/05/02 21:37:06 by kgalstya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,12 @@ static int	arg_check(char **av, int i, int len)
 	j = 0;
 	while (av[i][j] != '\0')
 	{
-		if ((is_digit(av[i][j])) || (sign(av[i][j])))
+		if (sign(av[i][j]) && (is_digit(av[i][j + 1])))
 		{
 			j++;
 			len++;
 		}
-		else if ((is_digit(av[i][j + 1])) || (av[i][j] == ' '))
+		else if ((is_digit(av[i][j])) || (av[i][j] == ' '))
 		{
 			j++;
 			len++;

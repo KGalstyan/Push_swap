@@ -6,7 +6,7 @@
 /*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 22:19:09 by kgalstya          #+#    #+#             */
-/*   Updated: 2024/05/01 19:37:06 by kgalstya         ###   ########.fr       */
+/*   Updated: 2024/05/02 21:36:21 by kgalstya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ int	is_sorted(t_stack **stack)
 	t_stack	*tmp;
 
 	tmp = (*stack);
-	if(!tmp)
-		return(0);
+	if (!tmp)
+		return (0);
 	while (tmp->next != NULL)
 	{
 		if (tmp->value > tmp->next->value)

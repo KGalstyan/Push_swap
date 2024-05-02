@@ -19,7 +19,7 @@ all : $(NAME)
 ${NAME}: ${FUNO} push_swap.h Makefile
 	@$(CC) $(CFLAGS) main.c $(FUNO) -o $(NAME)
 
-bonus:${BONO}
+bonus:${BONO} ${FUNO}
 	@$(CC) $(CFLAGS) $(FUNO) $(BONO) -o $(BONUS)
 
 clean: 
@@ -29,12 +29,5 @@ fclean:
 	-rm -rf $(NAME) $(FUNO) $(BONO) $(BONUS) main.o
 
 re: fclean all
-
-COUNT = 500
-test_checker: $(BONO) $(BONUS)
-	$(eval ARG = $(shell jot -r $(COUNT) -5000000 5000000))
-	@./push_swap $(ARG) | ./checker $(ARG)
-	@echo  "Instructions "
-	@./push_swap $(ARG) | wc -l
 
 .PHONY: all clean fclean re bonus

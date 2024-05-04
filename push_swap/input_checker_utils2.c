@@ -6,7 +6,7 @@
 /*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 17:56:26 by kgalstya          #+#    #+#             */
-/*   Updated: 2024/05/01 18:57:39 by kgalstya         ###   ########.fr       */
+/*   Updated: 2024/05/04 14:56:13 by kgalstya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,12 @@ static int	correct_len(char *str)
 	len = 0;
 	if (sign(str[i]))
 		i++;
-	while (str[i])
+	while (str[i] == '0')
+		i++;
+	while (is_digit(str[i]) && str[i])
 	{
 		i++;
-		if (str[i] != '0')
-			len++;
+		len++;
 	}
 	if (len > 10)
 		return (0);

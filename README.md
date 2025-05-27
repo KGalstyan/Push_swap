@@ -49,6 +49,6 @@ This strategy is highly efficient for datasets ranging from small to large sizes
 ### 🔨 Build
 
 ```bash
-git clone https://github.com/yourusername/push_swap.git
+git clone https://github.com/KGalstyan/Push_swap.git
 cd push_swap
 make
